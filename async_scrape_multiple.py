@@ -71,7 +71,7 @@ async def scraper(url, i=-1, timeout=60, start=None):
         try:
             await asyncio.wait_for(session.get(url), timeout=timeout)
         except asyncio.TimeoutError:
-            return[]
+            return []
         body = await session.get_page_source()
         links = await get_links(body)
         if start != None:
